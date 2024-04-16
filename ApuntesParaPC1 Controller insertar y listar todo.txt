@@ -20,3 +20,29 @@ public class TicketController {
             return m.map(y, TicketDTO.class);
         }).collect(Collectors.toList());
     } //(Con esto hago el insertar y el listar todo)
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id){
+        stR.delete(id);
+    } //En el interfaces public void delete(int id);
+      //En el implements sR.deleteById(id);
+
+    @PutMapping("/{id}")
+    public void Actualizar (@PathVariable int id, @RequestBody StudentDTO studentDTO){
+        ModelMapper m=new ModelMapper();
+        Student s=m.map(studentDTO,Student.class);
+        stR.Update(id,s);
+    } //Actualizar todo
+      //public void Update(int id, Student st); en el interfaces
+       /*@Override
+    	public void Update(int id, Student newSt) {
+        Student studentfounded = sR.findById(id).orElseThrow();
+        studentfounded.setGcDNI(newSt.getGcDNI());
+        studentfounded.setGcName(newSt.getGcName());
+        studentfounded.setGcLastName(newSt.getGcLastName());
+        studentfounded.setGcEV1(newSt.getGcEV1());
+        studentfounded.setGcEV2(newSt.getGcEV2());
+        studentfounded.setGcNF(newSt.getGcNF());
+        studentfounded.setGcApproved(newSt.isGcApproved());
+        sR.save(studentfounded);
+    	} En el implements/*
