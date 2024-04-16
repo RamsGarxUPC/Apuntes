@@ -1,0 +1,42 @@
+Dependencias para pom.xml
+
+<!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+
+Dependencias creando el proyecto:
+
+Spring Data JPA
+Spring Web
+PostgreSQL Driver
+Spring Boot DevTools
+
+Creando proyecto:
+Languaje: Java, Type: Maven, Group: pe.edu.upc, JDK: corretto-17, Java 17
+Packaging: Jar.
+
+Nombres de packages: entities, repositories, servicesimplements
+		     servicesinterfaces, dtos, controllers.
+
+Application Properties
+
+spring.application.name=repaso1 (nombreproyecto)
+spring.jpa.database=postgresql
+spring.jpa.show-sql=false
+spring.jpa.hibernate.ddl-auto=create
+
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost/GarciaBDPC2r1 (nombreBD)
+spring.datasource.username=postgres
+spring.datasource.password=Yatagarasu134 (Contraseña: 1234)
+
+server.port=8084

@@ -1,0 +1,22 @@
+En el Controller
+
+@RestController
+@RequestMapping("/GarciaCardenas")
+public class TicketController {
+    @Autowired
+    private ITicketService iT;
+
+    @PostMapping
+    public void insertar(@RequestBody TicketDTO ticketDTO){
+        ModelMapper m=new ModelMapper();
+        Ticket t=m.map(ticketDTO, Ticket.class);
+        iT.insert(t);
+    }
+
+    @GetMapping
+    public List<TicketDTO> listar(){
+        return iT.list().stream().map(y->{
+            ModelMapper m=new ModelMapper();
+            return m.map(y, TicketDTO.class);
+        }).collect(Collectors.toList());
+    } //(Con esto hago el insertar y el listar todo)
