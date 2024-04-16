@@ -34,4 +34,17 @@ public class StudentServiceImplement implements IStudentService {
         sR.deleteById(id);
     }
 
+    @Override
+    public void Update(int id, Student newSt) {
+        Student studentfounded = sR.findById(id).orElseThrow();
+        studentfounded.setGcDNI(newSt.getGcDNI());
+        studentfounded.setGcName(newSt.getGcName());
+        studentfounded.setGcLastName(newSt.getGcLastName());
+        studentfounded.setGcEV1(newSt.getGcEV1());
+        studentfounded.setGcEV2(newSt.getGcEV2());
+        studentfounded.setGcNF(newSt.getGcNF());
+        studentfounded.setGcApproved(newSt.isGcApproved());
+        sR.save(studentfounded);
+    }
+
 }

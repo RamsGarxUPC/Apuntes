@@ -43,4 +43,11 @@ public class StudentController {
         stR.delete(id);
     }
 
+    @PutMapping("/{id}")
+    public void Actualizar (@PathVariable int id, @RequestBody StudentDTO studentDTO){
+        ModelMapper m=new ModelMapper();
+        Student s=m.map(studentDTO,Student.class);
+        stR.Update(id,s);
+    }
+
 }
