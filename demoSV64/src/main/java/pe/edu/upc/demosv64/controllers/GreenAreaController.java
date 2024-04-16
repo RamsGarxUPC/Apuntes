@@ -48,6 +48,13 @@ public class GreenAreaController {
             return m.map(y,GreenAreaDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @PutMapping("/{id}")
+    public void Actualizar (@PathVariable Integer id, @RequestBody GreenAreaDTO greenAreaDTO){
+        ModelMapper m=new ModelMapper();
+        GreenArea g=m.map(greenAreaDTO,GreenArea.class);
+        iG.Actualizar(id,g);
+    }
 }
 
 

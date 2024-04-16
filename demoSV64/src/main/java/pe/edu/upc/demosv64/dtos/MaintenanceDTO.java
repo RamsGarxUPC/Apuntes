@@ -1,13 +1,15 @@
 package pe.edu.upc.demosv64.dtos;
+
 import pe.edu.upc.demosv64.entities.GreenArea;
+
 import java.time.LocalDate;
 
 public class MaintenanceDTO {
     private int idMaintenance;
     private String descriptionMaintenance;
     private LocalDate dateMaintenance;
-    private  String responsibleMaintenance;
-    private  double amountMaintenance;
+    private String responsibleMaintenance;
+    private double amountMaintenance;
     private GreenArea greenArea;
 
     public int getIdMaintenance() {

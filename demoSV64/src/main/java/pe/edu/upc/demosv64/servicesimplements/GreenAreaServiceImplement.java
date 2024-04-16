@@ -7,6 +7,7 @@ import pe.edu.upc.demosv64.repositories.IGreenAreaRepository;
 import pe.edu.upc.demosv64.servicesinterfaces.IGreenAreaService;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -36,6 +37,16 @@ public class GreenAreaServiceImplement implements IGreenAreaService {
     @Override
     public List<GreenArea> findByDateCreationGreenArea(LocalDate fecha) {
         return gaR.findByDateCreationGreenArea(fecha);
+    }
+
+    @Override
+    public void Actualizar(Integer id, GreenArea greenArea) {
+        GreenArea encontrado = gaR.findById(id).orElseThrow();
+        encontrado.setNameGreenArea(greenArea.getNameGreenArea());
+        encontrado.setExtensioGreenArea(greenArea.getExtensioGreenArea());
+        encontrado.setDateCreationGreenArea(greenArea.getDateCreationGreenArea());
+        encontrado.setUbicationGreenArea(greenArea.getUbicationGreenArea());
+        gaR.save(encontrado);
     }
 
 

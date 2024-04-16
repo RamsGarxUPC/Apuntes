@@ -1,5 +1,6 @@
 package pe.edu.upc.demosv64.servicesinterfaces;
 
+import org.hibernate.sql.Update;
 import pe.edu.upc.demosv64.entities.GreenArea;
 
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ public interface IGreenAreaService {
     public void delete(int id);
     public GreenArea listId(int id);
     public List<GreenArea> findByDateCreationGreenArea(LocalDate fecha);
+    public void Actualizar (Integer id, GreenArea greenArea);
 
 }
 

@@ -2,7 +2,7 @@ package pe.edu.upc.demosv64.dtos;
 
 public class MaintenanceByGreenareaDTO {
     private String nameGreenarea;
-    private  int quantityMaintenance;
+    private int quantityMaintenance;
 
     public String getNameGreenarea() {
         return nameGreenarea;

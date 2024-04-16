@@ -7,6 +7,7 @@ import pe.edu.upc.demosv64.repositories.IMaintenanceRepository;
 import pe.edu.upc.demosv64.servicesinterfaces.IMaintenanceService;
 
 import java.util.List;
+
 @Service
 public class MaintenanceServiceImplement implements IMaintenanceService {
     @Autowired
@@ -27,8 +28,8 @@ public class MaintenanceServiceImplement implements IMaintenanceService {
     }
 
     @Override
-    public List<String[]> amountMaintenanceByGreenArea() {
-        return mR.amountMaintenanceByGreenArea();
+    public List<String[]> quantityByArea() {
+        return mR.quantityByArea();
     }
 
     @Override

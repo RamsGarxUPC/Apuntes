@@ -12,17 +12,16 @@ import java.util.List;
 public interface IMaintenanceRepository extends JpaRepository<Maintenance,Integer> {
     @Query(value = "select ga.name_green_area as AreaVerde, count(*) as Cantidad \n" +
             "from green_area ga inner join Maintenance m \n" +
-            "on ga.id_green_area=m.greenarea_id \n" +
+            "on ga.id_green_area=m.grean_area_id \n" +
             "group by ga.name_green_area ",nativeQuery = true)
     public List<String[]> quantityMaintenanceByGreenArea();
 
     @Query(value = "select ga.name_green_area as AreaVerde, sum(m.amount_maintenance) as Monto \n" +
-            "from green_area ga inner join Maintenance m  \n" +
-            "on ga.id_green_area=m.greenarea_id \n" +
-            "group by ga.name_green_area ",nativeQuery = true)
-    public List<String[]> amountMaintenanceByGreenArea();
+            "from green_area ga inner join Maintenance m \n" +
+            "on ga.id_green_area=m.grean_area_id \n" +
+            "group by ga.name_green_area ", nativeQuery = true)
+    public List<String[]> quantityByArea();
 
-    @Query(" from Maintenance  m where m.greenArea.nameGreenArea=:d")
-    public List<Maintenance> maintenanceByGreenArea(@Param("d") String  d);
-
+    @Query("from Maintenance m where m.greenArea.nameGreenArea=:d")
+    public List<Maintenance> maintenanceByGreenArea(@Param("d") String d);
 }

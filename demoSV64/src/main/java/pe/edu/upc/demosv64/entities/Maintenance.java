@@ -3,25 +3,36 @@ package pe.edu.upc.demosv64.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+
 @Entity
 @Table(name = "Maintenance")
 public class Maintenance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idMaintenance;
-    @Column(name = "descriptionMaintenance",nullable = false, length = 300)
+    @Column(name = "descriptionMaintenance", nullable = false,length = 300)
     private String descriptionMaintenance;
-    @Column(name = "dateMaintenance",nullable = false)
+    @Column(name = "dateMaintenance", nullable = false)
     private LocalDate dateMaintenance;
-    @Column(name = "responsibleMaintenance",nullable = false, length = 45)
-    private  String responsibleMaintenance;
+    @Column(name = "responsibleMaintenance", nullable = false,length = 45)
+    private String responsibleMaintenance;
     @Column(name = "amountMaintenance", nullable = false)
-    private  double amountMaintenance;
+    private double amountMaintenance;
+
     @ManyToOne
-    @JoinColumn(name = "greenareaId")
-    private  GreenArea greenArea;
+    @JoinColumn(name = "greanAreaId")
+    private GreenArea greenArea;
 
     public Maintenance() {
+    }
+
+    public Maintenance(int idMaintenance, String descriptionMaintenance, LocalDate dateMaintenance, String responsibleMaintenance, double amountMaintenance, GreenArea greenArea) {
+        this.idMaintenance = idMaintenance;
+        this.descriptionMaintenance = descriptionMaintenance;
+        this.dateMaintenance = dateMaintenance;
+        this.responsibleMaintenance = responsibleMaintenance;
+        this.amountMaintenance = amountMaintenance;
+        this.greenArea = greenArea;
     }
 
     public int getIdMaintenance() {
@@ -69,15 +80,6 @@ public class Maintenance {
     }
 
     public void setGreenArea(GreenArea greenArea) {
-        this.greenArea = greenArea;
-    }
-
-    public Maintenance(int idMaintenance, String descriptionMaintenance, LocalDate dateMaintenance, String responsibleMaintenance, double amountMaintenance, GreenArea greenArea) {
-        this.idMaintenance = idMaintenance;
-        this.descriptionMaintenance = descriptionMaintenance;
-        this.dateMaintenance = dateMaintenance;
-        this.responsibleMaintenance = responsibleMaintenance;
-        this.amountMaintenance = amountMaintenance;
         this.greenArea = greenArea;
     }
 }
